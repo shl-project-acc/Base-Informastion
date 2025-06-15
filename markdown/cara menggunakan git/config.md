@@ -51,6 +51,36 @@ git config --global credential.helper cache
 git config --global credential.helper 'cache --timeout=3600'
 ```
 
+## Mengganti User Git (Ketika Ada Multiple User)
+```bash
+# Hapus kredensial yang tersimpan di sistem
+git config --global --unset user.name
+git config --global --unset user.email
+git config --global --unset credential.helper
+
+# Untuk Windows, hapus kredensial dari Credential Manager
+# Buka Control Panel > Credential Manager > Windows Credentials
+# Cari git atau github kemudian hapus
+
+# Set kredensial baru
+git config --global user.name "Nama Baru"
+git config --global user.email "email.baru@example.com"
+
+# Verifikasi perubahan
+git config --list
+
+# Pada push berikutnya, Git akan meminta kredensial baru
+```
+
+### Tips Mengganti User
+- Pastikan sudah backup kode sebelum mengganti user
+- Jika menggunakan token, generate token baru di GitHub/GitLab
+- Untuk repository spesifik, bisa set config tanpa --global:
+```bash
+git config user.name "Nama Baru"
+git config user.email "email.baru@example.com"
+```
+
 ## Tips Penting
 - Pastikan email yang dikonfigurasi sama dengan email GitHub/GitLab Anda
 - Gunakan HTTPS atau SSH untuk koneksi ke remote repository
