@@ -1,1 +1,0 @@
-kalau bisa sangarrr
